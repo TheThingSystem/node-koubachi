@@ -55,7 +55,7 @@ Koubachi.prototype.invoke = function(path, body, callback) {
     body = null;
   }
 
-  if (!callback) callback = function(err, msg) { if (err) self.logger.error(err); else self.logger.info(msg); };
+  if (!callback) callback = function(err, msg) { if (err) self.logger.error(err.message); else self.logger.info(msg); };
 
   options = url.parse('http://api.koubachi.com/' + path + '?' + querystring.stringify(self.config));
   options.method = (!!body) ? 'PUT' : 'GET';
