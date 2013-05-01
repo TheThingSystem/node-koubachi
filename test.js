@@ -4,7 +4,7 @@ var Koubachi = require('./koubachi')
 
 koubachi.on('error', function(err) {
   console.log('koubachi error'); console.error (err);
-}).setConfig('KLABE6EG8JMFW0YVWZSG7WCG', '5rdlgdlpBVZAZsuviiVS'
+}).setConfig('...', '...'
 ).getDevices(function(err, results) {
   var i;
 
