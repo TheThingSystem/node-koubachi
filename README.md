@@ -10,7 +10,7 @@ You will get back two values, _app_key_ and _user_credentials_ which are tied to
 Install
 -------
 
-    npm install node-koubachi
+    npm install koubachi
 
 
 API
@@ -20,7 +20,7 @@ Please consult the [koubachi](http://koubachi.com) API [documentation](http://la
 
 ### Load module
 
-    var Koubachi = require('node-koubachi')
+    var Koubachi = require('koubachi')
       , koubachi = new Koubachi.Koubachi()
       ;
     
