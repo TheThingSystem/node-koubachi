@@ -13,6 +13,7 @@ var DEFAULT_LOGGER = { error   : function(msg, props) { console.log(msg); consol
                      , warning : function(msg, props) { console.log(msg); if (props) console.log(props);  }
                      , notice  : function(msg, props) { console.log(msg); if (props) console.log(props);  }
                      , info    : function(msg, props) { console.log(msg); if (props) console.log(props);  }
+                     , debug   : function(msg, props) { console.log(msg); if (props) console.log(props);  }
                      };
 
 var Koubachi = function() {
