@@ -1,6 +1,6 @@
 {
   "name"           : "koubachi"
-, "version"        : "0.0.2"
+, "version"        : "0.0.3"
 , "description"    : "node.js module for the Koubachi Wi-Fi Plant Sensor"
 , "author": {
     "name"           : "Marshall Rose"

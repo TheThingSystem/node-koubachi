@@ -9,11 +9,11 @@ var DEFAULT_CONFIG = { app_key          : ''
                      , user_credentials : ''
                      };
 
-var DEFAULT_LOGGER = { error   : function(msg, props) { console.log(msg); console.trace(props.exception); }
-                     , warning : function(msg, props) { console.log(msg); if (props) console.log(props);  }
-                     , notice  : function(msg, props) { console.log(msg); if (props) console.log(props);  }
-                     , info    : function(msg, props) { console.log(msg); if (props) console.log(props);  }
-                     , debug   : function(msg, props) { console.log(msg); if (props) console.log(props);  }
+var DEFAULT_LOGGER = { error   : function(msg, props) { console.log(msg); if (!!props) console.trace(props.exception); }
+                     , warning : function(msg, props) { console.log(msg); if (!!props) console.log(props);             }
+                     , notice  : function(msg, props) { console.log(msg); if (!!props) console.log(props);             }
+                     , info    : function(msg, props) { console.log(msg); if (!!props) console.log(props);             }
+                     , debug   : function(msg, props) { console.log(msg); if (!!props) console.log(props);             }
                      };
 
 var Koubachi = function() {
