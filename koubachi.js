@@ -70,10 +70,10 @@ Koubachi.prototype.invoke = function(path, body, callback) {
     }).on('end', function() {
       callback(null, JSON.parse(content));
     }).on('close', function() {
-    self.logger.error('koubachi', { event: 'http', diagnostic: 'premature EOF' });
+    self.logger.error('http', { diagnostic: 'premature EOF' });
     });
   }).on('error', function(err) {
-    self.logger.error('koubachi', { event: 'http', diagnostic: 'get', exception: err });
+    self.logger.error('http', { diagnostic: 'get', exception: err });
   }).end(body);
 
   return this;
