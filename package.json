@@ -14,7 +14,7 @@
     "url"          : "https://github.com/TheThingSystem/node-koubachi/issues"
   }
 , "keywords"       : [ "Koubachi" ]
-, "main"           : "./index.js"
+, "main"           : "./koubachi.js"
 , "engines": {
     "node"         : ">=0.8"
   }
