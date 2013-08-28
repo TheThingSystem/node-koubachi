@@ -8,10 +8,10 @@
   }
 , "repository": {
     "type"         : "git",
-    "url"          : "https://github.com/mrose17/node-koubachi.git"
+    "url"          : "https://github.com/TheThingSystem/node-koubachi.git"
   } 
 , "bugs"           : {
-    "url"          : "https://github.com/mrose17/node-koubachi/issues"
+    "url"          : "https://github.com/TheThingSystem/node-koubachi/issues"
   }
 , "keywords"       : [ "Koubachi" ]
 , "main"           : "./index.js"
