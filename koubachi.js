@@ -68,7 +68,13 @@ Koubachi.prototype.invoke = function(path, body, callback) {
     response.on('data', function(chunk) {
       content += chunk.toString();
     }).on('end', function() {
-      callback(null, JSON.parse(content));
+      var results;
+
+      try { results = JSON.parse(content); } catch(ex) {
+        self.logger.error('json', { diagnostic: ex.message });
+        return callback(ex, null);
+      }
+      callback(null, results);
     }).on('close', function() {
     self.logger.error('http', { diagnostic: 'premature EOF' });
     });
