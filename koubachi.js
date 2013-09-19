@@ -17,8 +17,13 @@ var DEFAULT_LOGGER = { error   : function(msg, props) { console.log(msg); if (!!
                      };
 
 var Koubachi = function() {
+    var k;
+
+    if (!(this instanceof Koubachi)) return new Koubachi();
+
     this.devices = null;
-    this.config = DEFAULT_CONFIG;
+    this.config = {};
+    for (k in DEFAULT_CONFIG) if (DEFAULT_CONFIG.hasOwnProperty(k)) this.config[k] = DEFAULT_CONFIG[k];
     this.logger = DEFAULT_LOGGER;
 };
 util.inherits(Koubachi, events.EventEmitter);
