@@ -61,7 +61,7 @@ Koubachi.prototype.invoke = function(path, body, callback) {
     body = null;
   }
 
-  if (!callback) callback = function(err, msg) { if (err) self.logger.error(err.message); else self.logger.info(msg); };
+  if (!callback) callback = function(err, results) { if (err) self.logger.error(err.message); else self.logger.info(results); };
 
   options = url.parse('http://api.koubachi.com/' + path + '?' + querystring.stringify(self.config));
   options.method = (!!body) ? 'PUT' : 'GET';
@@ -76,15 +76,15 @@ Koubachi.prototype.invoke = function(path, body, callback) {
       var results;
 
       try { results = JSON.parse(content); } catch(ex) {
-        self.logger.error('json', { diagnostic: ex.message });
+        self.logger.error('json', { exception: ex });
         return callback(ex, null);
       }
       callback(null, results);
     }).on('close', function() {
-    self.logger.error('http', { diagnostic: 'premature EOF' });
+    self.logger.error('https', { exception: new Error('premature EOF') });
     });
   }).on('error', function(err) {
-    self.logger.error('http', { diagnostic: 'get', exception: err });
+    self.logger.error('http', { exception: err });
   }).end(body);
 
   return this;

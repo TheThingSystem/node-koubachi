@@ -1,7 +1,7 @@
 node-koubachi
 =============
 
-A node.js module to interface with the [Koubachi Wi-Fi Plant Sensor](http://koubachi.com)
+A node.js module to interface with the [Koubachi Wi-Fi Plant Sensor](http://koubachi.com).
 
 First things first, go to [Koubachi labs](http://labs.koubachi.com) and sign up for access.
 You will get back two values, _app_key_ and _user_credentials_ which are tied to your account.
@@ -80,7 +80,7 @@ Please consult the [koubachi](http://koubachi.com) API [documentation](http://la
     koubachi.getReadings(plantID, function(err, results) {
       var i;
 
-      if (err) return console.log('getTasks: ' + err.message);
+      if (err) return console.log('getReadings: ' + err.message);
 
       for (i = 0; i < results.sensors.length; i++) {
         // inspect results.sensors[i].sensor
