@@ -73,15 +73,22 @@ Koubachi.prototype.invoke = function(path, body, callback) {
     response.on('data', function(chunk) {
       content += chunk.toString();
     }).on('end', function() {
-      var results;
+      var err, results;
 
       try { results = JSON.parse(content); } catch(ex) {
         self.logger.error('json', { exception: ex });
         return callback(ex, null);
       }
+
+      if (!!results.single_access_token) {
+        err = new Error(!!results.single_access_token[0] || results.single_access_token);
+        self.logger.error('authentication', { exception: err });
+        return callback(err, null);
+      }
+
       callback(null, results);
     }).on('close', function() {
-    self.logger.error('https', { exception: new Error('premature EOF') });
+      self.logger.error('https', { exception: new Error('premature EOF') });
     });
   }).on('error', function(err) {
     self.logger.error('http', { exception: err });
