@@ -89,9 +89,11 @@ Koubachi.prototype.invoke = function(path, body, callback) {
       callback(null, results);
     }).on('close', function() {
       self.logger.error('https', { exception: new Error('premature EOF') });
+      return callback(new Error('premature EOF'), null);
     });
   }).on('error', function(err) {
     self.logger.error('http', { exception: err });
+    return callback(err, null);
   }).end(body);
 
   return this;
